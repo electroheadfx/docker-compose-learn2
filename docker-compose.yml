@@ -1,0 +1,22 @@
+version: "3"
+services:
+  monapp:
+    image: python-flesk-image
+    depends_on:
+      - redis
+    ports:
+      - "3000:80"
+    networks:
+      - monreseau
+    environment:
+      - NOM=les amis egis
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - monreseau
+
+networks:
+  monreseau:
